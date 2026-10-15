@@ -95,6 +95,28 @@ comando é recomendado porque evita estruturas incompletas.
 
 ## 🧩 Ferramentas principais
 
+### CellProfiler no Windows
+
+Prefira o instalador estável oficial, que normalmente não exige compilação. Se
+a instalação for feita a partir do código-fonte, ou se o `pip` tentar compilar
+uma dependência, use o **Visual Studio Installer**, selecione
+**Desenvolvimento para desktop com C++** e confirme:
+
+- **Ferramentas de Build do MSVC para x64/x86** (versão estável mais recente);
+- **SDK do Windows 11, série 10.0.26100** (por exemplo,
+  `10.0.26100.8249`; a revisão pode mudar).
+
+A IDE completa do Visual Studio não é necessária. A instalação pode ocupar
+aproximadamente **10–20 GB**, dependendo das opções. Após instalar, abrir e
+testar o CellProfiler, é possível remover as ferramentas pelo Visual Studio
+Installer para liberar espaço; o programa já compilado normalmente continuará
+funcionando. Será necessário reinstalá-las para recompilar, reparar ou atualizar
+uma instalação baseada em código-fonte. Não remova o **Microsoft Visual C++
+Redistributable**, pois ele pode ser necessário em tempo de execução.
+
+Referências: [CellProfiler](https://github.com/CellProfiler/CellProfiler) e
+[Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
+
 | Categoria | Ferramentas / Bibliotecas |
 |------------|----------------------------|
 | Análise de imagem | CellProfiler, CellPose |

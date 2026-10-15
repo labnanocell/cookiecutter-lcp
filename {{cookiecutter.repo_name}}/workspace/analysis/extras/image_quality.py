@@ -45,7 +45,7 @@ def _(mo):
     (`marimo edit`) at least once per experiment, look at the histograms and
     the flagged/passed thumbnail grid, and adjust the sliders before trusting
     the exclusion list. Once calibrated, re-running headlessly
-    (`pixi run python3`) reuses whatever threshold values were last saved
+    (`pixi run python`) reuses whatever threshold values were last saved
     into this cell's widget defaults.
 
     **Self-skips** if `CONFIG.image_root` isn't set (see NB01's config

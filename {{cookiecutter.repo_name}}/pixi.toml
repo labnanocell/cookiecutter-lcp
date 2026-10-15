@@ -3,7 +3,7 @@ name = "{{ cookiecutter.repo_name }}"
 version = "0.1.0"
 description = "Reproducible environment for HCI/HCA profile analysis"
 channels = ["conda-forge", "bioconda"]
-platforms = ["osx-arm64", "osx-64", "linux-64"]
+platforms = ["win-64", "osx-arm64", "osx-64", "linux-64"]
 
 [dependencies]
 python = ">=3.10,<3.13"
@@ -52,6 +52,6 @@ lab = "jupyter lab"
 check = "python scripts/check_environment.py"
 new-experiment = "python scripts/new_experiment.py"
 install-browser = "playwright install chromium"
-export-report = "python3 workspace/hca_pipeline/report_export.py"
-schema-check = "python3 workspace/hca_pipeline/schema.py"
-test-pipeline = "MPLCONFIGDIR=/tmp/lcp-matplotlib-cache PYTHONPATH=workspace python3 -m unittest discover -s workspace/tests -p 'test_*.py'"
+export-report = "python workspace/hca_pipeline/report_export.py"
+schema-check = "python workspace/hca_pipeline/schema.py"
+test-pipeline = { cmd = "python -m unittest discover -s workspace/tests -p 'test_*.py'", env = { MPLCONFIGDIR = ".pixi/matplotlib-cache", PYTHONPATH = "workspace" } }

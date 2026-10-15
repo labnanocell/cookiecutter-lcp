@@ -89,6 +89,39 @@ pixi.lock   # versões exatas dos pacotes
 .pixi/      # ambiente local (não versionado)
 ```
 
+### CellProfiler no Windows
+
+Prefira o instalador estável oficial do CellProfiler para Windows. Ele já traz
+os componentes compilados e normalmente **não exige** a instalação de um
+compilador C/C++.
+
+Se a instalação for feita a partir do código-fonte, ou se o `pip` não encontrar
+um pacote binário e tentar compilar uma dependência, abra o **Visual Studio
+Installer**, selecione a carga de trabalho **Desenvolvimento para desktop com
+C++** e confirme estes componentes individuais:
+
+- **Ferramentas de Build do MSVC para x64/x86** (versão estável mais recente);
+- **SDK do Windows 11, série 10.0.26100**. A revisão exibida pelo instalador
+  pode ser `10.0.26100.8249` ou outra mais recente da mesma série.
+
+Não é necessário instalar a IDE completa do Visual Studio. Reserve espaço em
+disco antes de começar: dependendo dos componentes já presentes e das opções
+selecionadas, o download e a instalação podem ocupar aproximadamente **10–20
+GB**.
+
+Depois que o CellProfiler estiver instalado e tiver sido aberto e testado com
+sucesso, as ferramentas de compilação podem ser removidas pelo **Visual Studio
+Installer** (`Modificar` para retirar a carga de trabalho ou `Mais >
+Desinstalar`). O CellProfiler já compilado normalmente continuará funcionando.
+Entretanto, será preciso reinstalar essas ferramentas para recompilar, reparar
+ou atualizar uma instalação baseada em código-fonte — portanto, em máquinas
+com espaço suficiente, mantê-las evita trabalho futuro. Não remova o
+**Microsoft Visual C++ Redistributable**, que pode ser necessário em tempo de
+execução.
+
+Referências: [CellProfiler](https://github.com/CellProfiler/CellProfiler) e
+[Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
+
 ### Como usar
 
 Instalar o ambiente:
@@ -108,7 +141,7 @@ pixi run marimo edit workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retr
 Executar um notebook sem interface, de forma determinística (ex.: CI ou rodar o pipeline completo):
 
 ```bash
-pixi run python3 workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retrieval.py
+pixi run python workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retrieval.py
 ```
 
 Abrir o JupyterLab (necessário apenas para eventuais `.ipynb` legados):

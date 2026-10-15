@@ -94,6 +94,34 @@ pixi.lock   # exact resolved versions
 .pixi/      # local environment (not versioned)
 ```
 
+### CellProfiler on Windows
+
+Prefer the official stable CellProfiler installer for Windows. It provides
+precompiled components and normally **does not require** a C/C++ compiler.
+
+If installing from source, or if `pip` cannot find a binary package and tries
+to compile a dependency, open **Visual Studio Installer**, select the **Desktop
+development with C++** workload, and confirm these individual components:
+
+- **MSVC Build Tools for x64/x86** (latest stable release);
+- **Windows 11 SDK, 10.0.26100 series**. The servicing revision shown by the
+  installer may be `10.0.26100.8249` or a newer revision in the same series.
+
+The full Visual Studio IDE is not required. Free disk space before starting:
+depending on existing components and the selected options, the download and
+installation may use approximately **10–20 GB**.
+
+After CellProfiler has been installed, opened, and tested successfully, the
+build tools can be removed through **Visual Studio Installer** (`Modify` to
+remove the workload or `More > Uninstall`). The already compiled CellProfiler
+installation will normally continue to work. However, the tools must be
+reinstalled to rebuild, repair, or update a source-based installation, so
+keeping them avoids future work when disk space permits. Do not remove the
+**Microsoft Visual C++ Redistributable**, which may be required at runtime.
+
+References: [CellProfiler](https://github.com/CellProfiler/CellProfiler) and
+[Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
+
 ### Usage
 
 Install environment:
@@ -113,7 +141,7 @@ pixi run marimo edit workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retr
 Run a notebook headlessly (deterministic, e.g. for CI or a full pipeline run):
 
 ```bash
-pixi run python3 workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retrieval.py
+pixi run python workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retrieval.py
 ```
 
 Start JupyterLab (only needed for legacy `.ipynb` files, if any remain):

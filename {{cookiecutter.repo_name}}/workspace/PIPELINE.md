@@ -24,7 +24,7 @@ NB04 → extras/cell_count_confounder_qc.py → NB03 → NB04 → NB05 → NB06
 ```
 
 NB03 has protocol-defined, objective pass/fail criteria and is safe to run
-headlessly (`pixi run python3 <path>` — see
+headlessly (`pixi run python <path>` — see
 [Marimo Notebooks](#marimo-notebooks)). NB04–NB06 involve judgment calls
 (interpreting a UMAP, choosing a modelling space, evaluating a cluster) and
 are meant to be run interactively (`pixi run marimo edit <path>`), with a
@@ -107,7 +107,7 @@ cell), not a `.ipynb`. This matters for how you work with them:
   each notebook (experiment picker, thresholds, checkboxes) are `mo.ui`
   elements — change one and every cell that depends on it re-runs
   automatically.
-- **Run headlessly / as a script:** `pixi run python3 workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retrieval.py`
+- **Run headlessly / as a script:** `pixi run python workspace/analysis/<EXPERIMENT_ID>/analysis/01_samples_retrieval.py`
   executes every cell in dependency order with no browser attached. Every
   `mo.ui` widget falls back to its default `value`, so a plain script run is
   fully deterministic — this is what CI or a "just run the whole pipeline"
@@ -470,5 +470,5 @@ pipeline.
 Install with: `pixi install`, then install the browser runtime used for PDF
 reports with `pixi run install-browser`, and verify imports with
 `pixi run check`. Edit or run a notebook with
-`pixi run marimo edit <path>` / `pixi run python3 <path>` (see
+`pixi run marimo edit <path>` / `pixi run python <path>` (see
 [Marimo Notebooks](#marimo-notebooks) above).

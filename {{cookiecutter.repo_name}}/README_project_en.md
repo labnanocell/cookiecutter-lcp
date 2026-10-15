@@ -71,6 +71,28 @@ copy from it into your new experiment folder and adapt.
 
 ## 🧩 Main tools and libraries
 
+### CellProfiler on Windows
+
+Prefer the official stable installer, which normally requires no compilation.
+If installing from source, or if `pip` tries to compile a dependency, use
+**Visual Studio Installer**, select **Desktop development with C++**, and
+confirm:
+
+- **MSVC Build Tools for x64/x86** (latest stable release);
+- **Windows 11 SDK, 10.0.26100 series** (for example,
+  `10.0.26100.8249`; the servicing revision may change).
+
+The full Visual Studio IDE is not required. The installation may use
+approximately **10–20 GB**, depending on the selected options. After installing,
+opening, and testing CellProfiler, the build tools can be removed through
+Visual Studio Installer to free disk space; the compiled application will
+normally keep working. They must be reinstalled to rebuild, repair, or update a
+source-based installation. Do not remove the **Microsoft Visual C++
+Redistributable**, which may be required at runtime.
+
+References: [CellProfiler](https://github.com/CellProfiler/CellProfiler) and
+[Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
+
 | Category | Tools / Libraries |
 |-----------|------------------|
 | Image analysis | CellProfiler, CellPose |
