@@ -93,6 +93,14 @@ Redistributable**, which may be required at runtime.
 References: [CellProfiler](https://github.com/CellProfiler/CellProfiler) and
 [Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
 
+### Harmony on Windows
+
+`harmonypy` 2.x must be built from source on Windows. Install the **Desktop
+development with C++** workload and the **ClangCL** toolset through Visual
+Studio Installer, then run `scripts\install_windows.bat` from Command Prompt.
+The wrapper selects the `Visual Studio 18 2026` generator, installs the Pixi
+environment, and verifies the `harmonypy` and `inmoose` imports.
+
 | Category | Tools / Libraries |
 |-----------|------------------|
 | Image analysis | CellProfiler, CellPose |

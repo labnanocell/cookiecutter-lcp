@@ -122,6 +122,28 @@ execução.
 Referências: [CellProfiler](https://github.com/CellProfiler/CellProfiler) e
 [Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
 
+### Harmony no Windows
+
+O `harmonypy` 2.x não fornece wheel para Windows, portanto o `pixi install`
+precisa compilá-lo. No Visual Studio Installer, instale **Desenvolvimento para
+desktop com C++**, incluindo o toolset **ClangCL**, e execute no Prompt de
+Comando:
+
+```bat
+scripts\install_windows.bat
+```
+
+O script configura `CMAKE_GENERATOR="Visual Studio 18 2026"` e
+`CMAKE_GENERATOR_TOOLSET=ClangCL`, instala o ambiente e confirma os imports de
+`harmonypy` e `inmoose`. O comando equivalente, para diagnóstico manual, é:
+
+```bat
+set CMAKE_GENERATOR=Visual Studio 18 2026
+set CMAKE_GENERATOR_TOOLSET=ClangCL
+pixi install
+pixi run python -c "import harmonypy, inmoose; print('harmonypy', harmonypy.__version__); print('inmoose importado')"
+```
+
 ### Como usar
 
 Instalar o ambiente:

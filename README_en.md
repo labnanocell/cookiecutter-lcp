@@ -122,6 +122,27 @@ keeping them avoids future work when disk space permits. Do not remove the
 References: [CellProfiler](https://github.com/CellProfiler/CellProfiler) and
 [Microsoft C++ Build Tools](https://learn.microsoft.com/cpp/overview/acquire-msvc).
 
+### Harmony on Windows
+
+`harmonypy` 2.x does not provide a Windows wheel, so `pixi install` must build
+it from source. In Visual Studio Installer, install **Desktop development with
+C++**, including the **ClangCL** toolset, then run from Command Prompt:
+
+```bat
+scripts\install_windows.bat
+```
+
+The wrapper selects `CMAKE_GENERATOR="Visual Studio 18 2026"` and
+`CMAKE_GENERATOR_TOOLSET=ClangCL`, installs the environment, and verifies the
+`harmonypy` and `inmoose` imports. The equivalent manual diagnostic is:
+
+```bat
+set CMAKE_GENERATOR=Visual Studio 18 2026
+set CMAKE_GENERATOR_TOOLSET=ClangCL
+pixi install
+pixi run python -c "import harmonypy, inmoose; print('harmonypy', harmonypy.__version__); print('inmoose imported')"
+```
+
 ### Usage
 
 Install environment:

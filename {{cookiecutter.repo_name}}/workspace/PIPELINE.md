@@ -472,3 +472,8 @@ reports with `pixi run install-browser`, and verify imports with
 `pixi run check`. Edit or run a notebook with
 `pixi run marimo edit <path>` / `pixi run python <path>` (see
 [Marimo Notebooks](#marimo-notebooks) above).
+
+Harmony 2.x does not publish Windows wheels, so Pixi builds it from source on
+that platform. Install the Visual Studio C++ workload with ClangCL and run
+`scripts\\install_windows.bat`; the wrapper selects the CMake generator and
+toolset known to work for this project.
